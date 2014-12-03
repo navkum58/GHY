@@ -1,0 +1,226 @@
+// Grid.scss
+// =============================================================================
+// Tools to build your grid system.
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Grid Config
+// -----------------------------------------------------------------------------
+$grid-container-width:   960px!default; // the width of the grid container.
+$grid-columns:           12!default;  // number of columns in the grid.
+$grid-spacing:           20!default;  // spacing in between grid columns.
+
+//$grid-padding:             0!default; // padding within a column.
+//$grid-border-width:        0!default; // width of the border, for maths.
+//$grid-border:           none!default; // border-style for grid columns.
+//$form-field-padding:       0!default; // no form-grid compatability unless specified in forms.scss
+
+// Options
+$with-colshift:   true!default;
+$with-colpush:    true!default;
+$with-colstretch: true!default;
+
+
+// -----------------------------------------------------------------------------
+// Grid Mixins
+// -----------------------------------------------------------------------------
+
+// Build Grid:
+// -----------
+// Creates all of the classes to build your grid system.
+// $grid-container-width: number in pixels for the container.
+// $grid-columns: number of columns to make divisions from.
+// $namespace: optional namespace to greate new grid systems.
+@mixin grid($grid-container-width, $grid-columns, $namespace:"") {
+  
+  // Change the $grid-container-width variable to be unitless so we can do
+  // conversions into percentages (for tablets) later.
+  $grid-container-width: $grid-container-width / ($grid-container-width * 0 + 1);
+  
+  // Column Width.
+	// Subtract the width of the margin multiplied by the number of grid columns
+	// less two (first and last have no margins), then divide the remaining value
+	// and round it down.
+  $column-width: floor(($grid-container-width - ($grid-spacing * ($grid-columns)) )/$grid-columns);
+  
+  // start the grid.
+	.#{$namespace}grid {
+
+		// add the grid container to the clearfix styles.
+		@extend .clearfix;
+		
+		// opinionated default, so we can position things absolute in the grid.
+		position: relative;
+
+		// build the classes.
+		.#{$namespace}col {
+      
+      // monitor styles by default.. override where necessary...
+      display: block;
+      float: left;
+        
+//      @if $column-width > 0 {
+//        width: #{$column-width}px;
+//      }
+//        
+//      $margin: (floor($grid-spacing/2)); // left and right margin.
+//      @if $margin != 0 {
+//        margin: 0 #{$margin}px 20px;
+//      }
+//      
+//      // =========
+//      // RECURSION
+//      // =========
+//      // Remove the first and last column margins
+//      .col {
+//        &:last-child {
+//          margin-right: 0!important;
+//        }
+//      
+//        &:first-child {
+//          margin-left: 0!important;
+//        }
+//        
+//        // Some extra classes for IE6/7/8
+//        @if $supports-ie8 == true or $supports-ie7 == true or $supports-ie6 == true {  
+//          &.#{$namespace}first {
+//            margin-left: 0!important;
+//          }
+//      
+//          &.#{$namespace}last {
+//            margin-right: 0!important;
+//          }
+//        }
+//      }
+
+      // =======
+      // COLUMNS
+      // =======
+//      @for $n from 1 to $grid-columns + 1 {
+        
+//        $span-width: floor(($column-width * $n) + ($grid-spacing * ($n - 1)));
+//        
+//        // Colspan: colspan1 = col, so we're not including it.
+//        @if $n > 1 {
+//          &.#{$namespace}colspan#{$n} {
+//            // width is the column width + spacing.
+//            // |m|column|mm|column|m|
+//            width: #{$span-width}px;
+//
+//          }
+//        }
+//        
+//        // Colshift, Colpush or Colstretch: 12 spans will break things.
+//        @if $n < 12 {
+//          @if $with-colshift == true {
+//            &.#{$namespace}colshift#{$n} {
+//              margin-left: #{$span-width + $margin + $margin + $margin}px;
+//            }
+//          } // ENDIF $with-colshift
+//        
+//          @if $with-colpush == true {
+//            &.#{$namespace}colpush#{$n} {
+//              margin-right: #{$span-width + $margin + $margin + $margin}px;
+//            }
+//          } // ENDIF $with-colpush
+//          
+//          @if $with-colstretch == true {
+//            &.#{$namespace}colstretch#{$n} {
+//              padding-left: #{floor($span-width / 2) + $margin}px;
+//              padding-right: #{floor($span-width / 2) + $margin}px;
+//            }
+//        
+//            &.#{$namespace}colstretch-left#{$n} {
+//              padding-left: #{$span-width + $margin + $margin}px;
+//            }
+//        
+//            &.#{$namespace}colstretch-right#{$n} {
+//              padding-right: #{$span-width + $margin + $margin}px;
+//            }
+//          } // ENDIF $with-colstretch
+//        } // ENDIF $n < 12
+//        
+//      }
+      
+//      @include breakpoint(tablet) {
+        
+        @if $column-width > 0 {
+          width: percentage($column-width/$grid-container-width);
+        }
+        
+        $margin: percentage(floor($grid-spacing/2)/$grid-container-width);
+  			@if $margin != 0 {
+  				margin: 0 $margin 20px;
+  			}
+        
+        @for $n from 1 to $grid-columns + 1 {
+        
+          $span-width: percentage(floor(($column-width * $n) + ($grid-spacing * ($n - 1)))/$grid-container-width);
+          
+          // Colspan
+          @if $n > 1 {
+            &.#{$namespace}colspan#{$n} {
+              // width is the column width + spacing.
+              // |column|mm|column|
+              width: $span-width;
+            
+//              // recursive grids, percentage recalculations only...
+//              .#{$namespace}col{
+//                width: 100%!important;
+//                margin: 0 0 20px 0!important;
+//              }
+            }
+          } // ENDIF $n > 1
+          
+          // Colshift, Colpush or Colstretch: 12 spans will break things.
+          @if $n < 12 {
+            @if $with-colshift == true {
+              &.#{$namespace}colshift#{$n} {
+                margin-left: $span-width + $margin + $margin + $margin;
+              }
+            } // ENDIF $with-colshift
+        
+            @if $with-colpush == true {
+              &.#{$namespace}colpush#{$n} {
+                margin-right: $span-width + $margin + $margin + $margin;
+              }
+            } // ENDIF $with-colpush
+          
+            @if $with-colstretch == true {
+              &.#{$namespace}colstretch#{$n} {
+                padding-left: ($span-width / 2) + $margin;
+                padding-right: ($span-width / 2) + $margin;
+              }
+        
+              &.#{$namespace}colstretch-left#{$n} {
+                padding-left: $span-width + $margin + $margin;
+              }
+        
+              &.#{$namespace}colstretch-right#{$n} {
+                padding-right: $span-width + $margin + $margin;
+              }
+            } // ENDIF $with-colstretch
+          } // ENDIF $n < 12
+        }
+//      } // breakpoint tablet
+      
+      @include breakpoint(handheld) {
+        width: 100%;
+        margin: 0 0 20px 0!important;
+        padding-left: 0!important;
+        padding-right: 0!important;
+        @for $n from 2 to $grid-columns + 1 {
+          &.#{$namespace}colspan#{$n} {
+            width: 100%;
+          } 
+        }
+      }
+      
+		} // col
+	} // grid
+} // mixin
+
+// -----------------------------------------------------------------------------
+// Grid Styles
+// -----------------------------------------------------------------------------
+@include grid($grid-container-width, $grid-columns); // grid12

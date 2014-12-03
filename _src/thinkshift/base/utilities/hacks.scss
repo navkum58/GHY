@@ -1,0 +1,37 @@
+//  =============================================================================
+//  Hacks.scss
+//  ----------
+//  Include some sass functions to replace things that don't quite work in some
+//  legacy browsers like IE6 and IE7.
+//  =============================================================================
+
+
+// --------------------------------------------------------------------------
+// Inline Block (with IE7 compatability)
+// --------------------------------------------------------------------------
+@function inline-block($left:false, $right:false) {
+  
+  $output: 'inline-block';
+  // no arguments are passed.
+  @if $supports-ie7 == true {
+    // since ie7 doesn't support inline-block, we need to make it inline,
+    // then apply zoom which makes it act like inline-block.
+    $output: $output + '; *display: inline; *zoom: 1';
+    
+    // The whitespace option will restore the 'white space' to the left
+    // or right of the IE7 inline-block.
+    @if $left == true {
+      $output: $output + '; margin-left: 0.3em';
+    }
+    @if $right == true {
+      $output: $output + '; margin-right: 0.3em';
+    }
+  }
+  
+  @return #{$output};
+}
+
+// backwards compatibility with older versions of src.
+@mixin display-inline-block($whitespace:false) {
+  display: inline-block();
+}

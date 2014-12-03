@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]>      <html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en-US" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en-US" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <title>GHY</title>
+  
+  <meta name="description" content=">>> REPLACE THIS TEXT <<<">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <script src="js/libs/modernizr/modernizr.custom.34454.js"></script>
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <!-- Google Web Font -->
+ <link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<script>
+    $(document).ready(function(){
+    //active class
+         $('.mobileNav > ul > li').click(function() {
+    $('.mobileNav > ul > .active').removeClass('active');
+    $(this).closest('li').addClass('active');
+});
+       $("a.innerMenu").mouseenter(function(){ 
+           $('ul.subMenu').show(); 
+         }); 
+       // Hover on desktop menu
+       $(".subMenu").mouseleave(function(){
+             $('ul.subMenu').hide(); 
+       });
+       $(".masthead").mouseenter(function(){
+             $('ul.subMenu').hide(); 
+       });
+        // menuButton Toggle 
+        $(".menuIcon").click(function(){
+    $(".mobileNav").toggle();
+ });
+           // menuButton carrot Toggle 
+        $(".mobInnermenu").click(function(){
+            
+   $(".moBsubMenu").slideToggle('slow',function(){ 
+    var getParent = $(this).parent('li');
+            $(getParent).toggleClass("active");
+          
+          });
+ });
+
+        $('.searchBox').focus(function(){
+           $('.searchBox').value(test);
+        });
+        //Check to see if the window is top if not then display button
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+      $('.scrollToTop').fadeIn();
+    } else {
+      $('.scrollToTop').fadeOut();
+    }
+  });
+  
+  //Click event to scroll to top
+  $('.scrollToTop').click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
+    });
+</script>
+</head>
+<body>
+
+<header class="masthead clearfix">
+  <div class="container grid">
+  <ul class="nav-h nav-v-switch pull-right utilNav">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="#">Client Utilities</a></li>
+      <li><form class="searchSection" action="/search" method="post" novalidate>            
+          <input class="searchBox" type="text" maxlength="100" placeholder="Search" autocomplete="off" name="txtSearch">
+  <i class="fa fa-search"></i> 
+          </form>
+      </li>
+  </ul>
+  </div>
+</header>
+
+<!-- Top Section -->
+  <section class="coverImg" style="background-image:url(img/home_t_bg.jpg);">
+      <div class="container grid">
+            <a class="menuIcon" href="#">
+            <i class="fa fa-bars"></i> 
+            Menu
+          </a>
+          <div class="mobileNav">
+               <ul>
+             <span class="arrow-down mobileArrow"></span>
+                   <li><a class="mobInnermenu" href="javascript:void(0)"> Trade Solutions &nbsp; <i class="fa fa-caret-down "></i></a>
+                       <ul class="moBsubMenu">
+                        <li><a href="#">Consulting & Compliance</a></li>
+                        <li><a href="#">Canadian Customs Brokers</a></li>
+                        <li><a href="#">US Customs Brokers</a></li>
+                        <li><a href="#">Duty Drawbacks & Refunds</a></li>
+                        <li><a href="#">Freight Forwarding</a></li>
+                        <li><a href="#">Distribution</a></li>
+                        <li><a href="#">Software</a></li>
+                     
+                      </ul>
+                   </li>
+                   <li><a href="javascript:void(0)"> Resources</a></li>
+                   <li><a href="javascript:void(0)"> Trade Compliance</a></li>
+                   <li><a href="javascript:void(0)"> Tradelines News</a></li>
+                   <li><a href="javascript:void(0)"> Events</a></li>
+                   <li><a href="javascript:void(0)">About</a></li>
+                   <li><a href="javascript:void(0)">Contact Us</a></li>
+                   <li class="active"><a href="careers.html">Careers</a></li>
+                   <li><a href="javascript:void(0)">Client Utilities</a></li>
+                   <li class="bodNone" ><form class="searchSection" action="/search" method="post" novalidate>  
+                   <div class="mobsearchBox" >          
+          <input class="searchPanel" type="text" maxlength="100" placeholder="Search" autocomplete="off" name="txtSearch">
+          <a class="searchIcon" href="#">
+  <i class="fa fa-search "></i> </a>
+  </div>
+          </form>
+      </li>
+              </ul>
+          </div>
+          <div class="mobileBrand pull-right">
+          <a href="index.html"> <img src="img/logo.png"></a>
+          </div>
+         
+          <div class="navigation pull-left">
+              <nav class="primary-navigation mainNav pull-left" role="navigation">
+                 <ul>
+                   <li><a class="innerMenu" href="#"> Trade Solutions</a>
+                    <div id="test">
+                        <ul class="subMenu">
+                        <span class="arrow-down"></span>
+                        <li><a href="#">Consulting & Compliance</a></li>
+                        <li><a href="#">Canadian Customs Brokers</a></li>
+                        <li class="active"><a href="#">US Customs Brokers</a></li>
+                        <li><a href="#">Duty Drawbacks & Refunds</a></li>
+                        <li><a href="#">Freight Forwarding</a></li>
+                        <li><a href="#">Distribution</a></li>
+                        <li class="bodNone"><a href="#">Software</a></li>
+                     
+                      </ul>
+                      </div>
+                   </li>
+                   <li><a href="#"> Resources</a></li>
+                   <li><a href="#"> Trade Compliance</a></li>
+                   <li><a href="#"> Tradelines News</a></li>
+                   <li><a href="#"> Events</a></li>
+                 </ul>
+              </nav>   
+              
+          </div>
+          <div class="brand pull-right clearfix">
+                <a href="index.html"><img  alt="GHY logo" class="" src="img/logo.png"></a>
+              </div>
+              <div class="clearfix"></div>
+          <h1 class="mainHeading" align="center">We Free Trade</h1>
+      </div>  
+  </section>
+<!-- /Top Section -->
+<section class="coverImg whowr" style="background-image:url(img/home_t1_bg.jpg);">
+    <div class="container grid">
+      <div class="who-we-are main">
+      <h1 align="center"> Who We Are</h1>
+      <p class="primaryTxt" align="center">At GHY, we believe in making cross-border trade easier. </p>
+      <p class="primaryTxt" align="center">
+      We provide innovative, tailor-made solutions to North American </p> 
+      <p class="primaryTxt" align="center">importers and exporters. We are proud to take customs </p> 
+      <p class="primaryTxt" align="center">service to the next level...customs <b>CARE</b>.</p>
+ </div>
+    </div>
+</section>
+
+
+<section class="tradeNews main">
+    <div class="container grid">
+    <center><h1>Tradelines News</h1></center>
+      <div class="col colspan4">
+      <div class="tradeDetail bodNone">
+        <h3>Freight Costs Flatten Out</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam. Ut wisi enim ad nostrud exerci.
+        </p>
+        <a href="#">Read more</a>
+        </div>
+      </div>
+      <div class="col colspan4">
+      <div class="tradeDetail">
+        <h3>Cargo Thefts Increase</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam. Ut wisi enim ad nostrud exerci.
+        </p>
+        <a href="#">Read more</a>
+        </div>
+      </div>
+      <div class="col colspan4">
+      <div class="tradeDetail">
+        <h3>Reefer Shippers Fed Up</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam. Ut wisi enim ad nostrud exerci.
+
+        </p>
+        <a href="#">Read more</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="compliance">
+    <div class="container grid">
+        <div class="col colspan8">
+            <h1>GHY Trade Compliance Blog</h1>
+            <p class="paratxt">An educational and informative venue to discuss international trade relations, proactive compliance strategies and how it may be important to you or your firm.</p>
+            <p>
+              Members of the GHY team and guest bloggers provide you with an insightful understanding of this topic and why it may be important to you and your firm.
+            </p>
+            <p><a href="bloglist.html" class="btn ghyprimary">Visit Trade Compliance Blog</a></p>
+        </div>
+        <div class="col colspan4 lightHome">
+          <img class="img-responsive"src="img/lighthome.png">
+        </div>
+    </div>
+</section>
+
+<section class="parsTracker main">
+    <div class="container grid">
+      <div class="col colspan4">
+      <div class="grayBg divSet">
+        <center>
+        <h2>PARS Tracker</h2>
+        <p>Track Your Package from A to B,</br>
+            lorem ipsum description</p>
+        <a href="#" class="btn ghyprimary">Track my package</a>
+        </center>
+        </div>
+      </div>
+      <div class="col colspan4">
+      <div class="blueBg divSet">
+      <center>
+        <h2>PAPS Tracker</h2>
+        <p>Track Your Package from A to B,</br>
+     lorem ipsum description</p>
+        <a href="#" class="btn ghyprimary">Track my package</a>
+        </center>
+        </div>
+      </div>
+      <div class="col colspan4">
+      <div class="greenBg divSet">
+      <center>
+        <h2>Featured Item</h2>
+        <p>Description of featured item </br>
+           lorem ipsum enim description.</p>
+        <a href="#" class="btn ghyprimary">Link to item</a>
+        </center>
+        </div>
+      </div>
+      <a href="#" class="scrollToTop"> > Back To Top</a>
+    </div>
+</section>
+<div class="clearfix"></div>  
+
+<footer class="baseplate greenBg main">
+    <div class="container grid">
+     <div class="col colspan4">
+     
+       <div class="company">
+       <a class="footerLogo" href="index.html"><img class="img-responsive " src="img/logo.png"></a>
+        <div class="pull-left">
+        <h3><b> GHY International</b></h3>
+        <p>GEO H. YOUNG & CO. LTD. I GHY USA INC.</p>
+        </div>
+     </div>
+     </div>
+     <div class="col colspan5 address">
+     <div class="col colspan6">
+       <p><b><label>Head Office</label></b></p>
+       <div class="clearfix"></div>
+       <p>809-167 Lombard Street</p>
+       <p>Winnipeg, Manitoba</p>
+       <p>Canada R3B 3H8</p>
+     </div>  
+     <div class="col colspan6">
+       <p><b><label> Call us </label>(204) 947.6851 </b> </p>
+       <p><label> Toll Free </label>(204) 947.3306 </p>
+      <p><label>Email us </label> dewar@ghy.com </p>
+     </div>  
+     </div>
+     <div class="col colspan3">
+      <ul class="socialIcons">
+         <li><a href="#" class=""><i class="fa fa-twitter"></i></a></li>
+         <li><a href="#" class=""><i class="fa fa-facebook-square"></i></a></li>
+         <li><a href="#" class=""><i class="fa fa-linkedin-square"></i></a></li>
+       </ul>
+     </div>
+    
+      <div class="col colspan8 colshift4">
+       <div class="copyright">
+       <div class="col colspan7">
+       <p> Copyright info. All right reserved. </p>
+       </div>
+        <div class="col colspan5 policy">
+       <a href="#">Privacy Policy</a><a href="#">Terms of Use</a>
+       </div>
+       </div>
+     </div>
+    </div>
+</footer>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/min/thinkshift-ck.js"></script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body>
+</html>

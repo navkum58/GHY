@@ -1,0 +1,235 @@
+// =============================================================================
+// Buttons.scss
+// ------------
+// =============================================================================
+$default-button-color:         lighten($silver, 15%)!default;
+$default-button-border-radius: 2px!default;
+$default-button-text-color:    darken($light-gray, 20%)!default;
+$default-button-text-shadow:   0px -1px 0px rgba(0,0,0,0.25);
+
+// Status Buttons
+$default-primary-button-color: $primary!default;
+$default-info-button-color:    $info!default;
+$default-alert-button-color:   $alert!default;
+$default-warning-button-color: $warning!default;
+$default-confirm-button-color: $confirm!default;
+
+// Gradients on all buttons
+$with-gradient: true!default;
+
+// Button Size Variants
+$with-btn-huge:  true!default;
+$with-btn-large: true!default;
+$with-btn-small: true!default;
+$with-btn-mini:  true!default;
+
+// Button Colour Variants
+$with-btn-primary: true!default;
+$with-btn-info:    true!default;
+$with-btn-alert:   true!default;
+$with-btn-warning: true!default;
+$with-btn-confirm: true!default;
+
+// Button Group
+$with-btn-group: true!default;
+
+
+// Mixin to apply a colour to the buttons
+// Applies a border color,
+// a background color,
+// optionally a gradient,
+@mixin colorize-button($color: $default-button-color, $with-gradient:$with-gradient) {
+
+  background-color: $color;
+  border-color: darken($color, 15%);
+  border-bottom-color: darken($color, 25%);
+  @if $with-gradient == true {
+    background-image: linear-gradient(top, $color, darken($color, 5%));
+  }
+  
+}
+
+// Mixin to add colour variants for buttons, can be used to
+// extend the default colour variants with other colours
+// and class names.
+// $namespace = html class attribute value: btn-[whatever]
+@mixin btn-color( $namespace,
+                  $base-color: $default-button-color,
+                  $text-color: $default-button-text-color,
+                  $text-shadow: $default-button-text-shadow) {
+  
+  &.btn-#{$namespace} {
+    @include text-shadow($text-shadow);
+    color: $text-color;
+    @include colorize-button($base-color);
+    &:focus {
+      @include colorize-button($base-color);
+    }
+    &:hover {
+      @include colorize-button(lighten($base-color, 5%));
+    }
+    &:active {
+      @include colorize-button(darken($base-color, 5%));
+    }
+  }
+}
+
+// BASE BUTTON
+.btn {
+
+  color: $default-button-text-color;
+  font-size: $font-size-medium;
+  border: 1px solid;
+  padding: 7px 14px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1;
+  
+  @include colorize-button;
+  @include text-shadow(0px 1px 0px rgba(255,255,255,0.35));
+  @include box-shadow(0px 1px 1px rgba(0,0,0,0.15));
+  @include border-radius($default-button-border-radius);
+  display: inline-block();
+
+  &:hover {
+  
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+    color: $default-button-text-color;
+  
+    @include colorize-button(lighten($default-button-color, 5%));
+
+  }
+
+  &:active {
+  
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+    color: darken($light-gray, 10%);
+  
+    @include colorize-button(darken($default-button-color, 15%));
+    @include box-shadow(inset 0px 1px 3px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.8))
+  
+  }
+
+  &:focus {
+    text-decoration: none;
+    color: $default-button-text-color;
+  }
+
+// =================
+// BUTTON EXTENSIONS
+// =================
+
+  // Different Button Sizes: Optional, On by default.
+	@if $with-btn-huge == true {
+		&.btn-huge {
+			font-size: $font-size-huge;
+			padding: 0.5em 1em;
+		}
+	}// ENDIF $with-btn-huge
+	
+  @if $with-btn-large == true {
+    &.btn-large {
+      font-size: $font-size-xlarge;
+      padding: 0.5em 1em;
+    }
+  } // ENDIF $with-btn-large
+  
+  @if $with-btn-small {
+    &.btn-small {
+      padding: 0.25em 0.75em;
+  
+      // Dependency: data-icon
+      &.icon, &[data-icon] {
+        &:before {
+          padding: 0.25em 0.75em;
+          margin: -0.25em 0 -0.25em -0.7em;
+        }
+      }
+  
+      &.icon-after, &[data-icon-after] {
+        &:after {
+          padding: 0.25em 0.75em;
+          margin: -0.25em -0.7em -0.25em 0em;
+        }
+      }
+    }
+  } // ENDIF $with-btn-small
+  
+  @if $with-btn-mini == true {
+    &.btn-mini {
+      font-size: $font-size-fine;
+      font-weight: normal;
+      padding: 0.25em 0.5em;
+  
+      // Dependency: data-icon
+      &.icon, &[data-icon] {
+        &:before {
+          padding: 0.25em 0.5em;
+          margin: -0.25em 0 -0.25em -0.5em;
+        }
+      }
+  
+      &.icon-after, &[data-icon-after] {
+        &:after {
+          padding: 0.25em 0.5em;
+          margin: -0.25em -0.5em -0.25em 0em;
+        }
+      }
+    }
+  } // ENDIF $with-btn-mini
+
+// =============
+// BUTTON COLORS
+// =============
+  
+  // Base Colour Settings
+//  &%btn-status {
+//    @include text-shadow(0px -1px 0px rgba(0,0,0,0.25));
+//    color: white;
+//  }
+
+  @if $with-btn-primary == true {
+    @include btn-color('primary', $base-color: $default-primary-button-color, $text-color: white);
+  } // ENDIF $with-btn-primary
+  
+  @if $with-btn-info {
+    @include btn-color('info', $base-color: $default-info-button-color, $text-color: white);
+  } // ENDIF $with-btn-info
+  
+  @if $with-btn-alert == true {
+    @include btn-color('alert', $base-color: $default-alert-button-color, $text-color: white);
+  } // ENDIF $with-btn-alert
+  
+  @if $with-btn-warning == true {
+    @include btn-color('warning', $base-color: $default-warning-button-color, $text-color: white);
+  } // ENDIF $with-btn-warning
+  
+  @if $with-btn-confirm == true {
+    @include btn-color('confirm', $base-color: $default-confirm-button-color, $text-color: white);
+  } // ENDIF $with-btn-confirm
+} // .btn
+
+@if $with-btn-group == true {
+  .btn-group {
+  
+    @extend .clearfix;
+  
+    .btn {
+      float: left;
+      @include border-radius(0px);
+      margin-right: -1px;
+    
+      &:first-child {
+        @include border-radius-utility($default-button-border-radius, false, false, $default-button-border-radius);
+      }
+    
+      &:last-child {
+        @include border-radius-utility(false, $default-button-border-radius, $default-button-border-radius, false);
+      }
+    }
+  }
+}

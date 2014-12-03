@@ -1,0 +1,47 @@
+// =============================================================================
+// Icons.scss
+// ----------
+// =============================================================================
+@font-face {
+  font-family: 'fonticons';
+  src: url("fonts/icons/fonticons.eot");
+  src: url("fonts/icons/fonticons.eot?#iefix") format('embedded-opentype'),
+       url("fonts/icons/fonticons.woff") format('woff'),
+       url("fonts/icons/fonticons.ttf") format('truetype'),
+       url("fonts/icons/fonticons.svg#fonticons") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+%iconstyles {
+  font-family: 'fonticons';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  text-decoration: inherit;
+  text-align: center;
+  padding: 0.5em 1em;
+  margin: -0.5em 0 -0.5em -1em;
+  opacity: 0.8;
+  display: inline-block;
+}
+
+.icon, [data-icon] {
+  position: relative;
+  &:before {
+    @extend %iconstyles;
+    content: attr(data-icon);
+    text-decoration: none;
+  }
+  
+}
+
+.icon-after, [data-icon-after] {
+  position: relative;
+  &:after {
+    @extend %iconstyles;
+    margin: -0.5em -1em -0.5em 0;
+    content: attr(data-icon-after);
+    text-decoration: none;
+  }
+}

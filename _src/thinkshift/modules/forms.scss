@@ -1,0 +1,216 @@
+$grid-form-field-padding: 5px; // this would set grid compatability.
+
+$with-field-message:          true!default;
+$with-error-message:          true!default;
+$with-notice-message:         true!default;
+$with-success-message:        true!default;
+$with-option-select:          true!default;
+$with-placeholder-animations: true!default;
+
+// Removed these types because of size issues.
+input[type=text], input[type=email], input[type=tel], input[type=url],
+input[type=number], input[type=password], input[type=search], .text-input, textarea,
+input[type=date], input[type=week], input[type=month],
+input[type=time], input[type=datetime], input[type=datetime-local] {
+  position: relative;
+  
+  padding: 7px 3.5px; // decimal pixels... I know it's weird.
+  margin: 0 0 0.5em;
+  border: 1px solid lighten($light-gray, 10%);
+  
+  font-size: $font-size-medium;
+  height: $font-size-medium;
+  line-height: $font-size-medium;
+  
+  @include border-radius(2px);
+  @include box-shadow(inset 0px 1px 2px rgba(0,0,0,0.1));
+  
+}
+
+// adjusted because they're weird in size.
+input[type=date], input[type=week], input[type=month],
+input[type=time], input[type=datetime-local] {
+  -webkit-appearance: border-box;
+}
+
+textarea {
+  resize: both;
+  max-width: 100%;
+  height: auto;
+}
+
+@if $with-option-select == true {
+  // Mostly stolen from Chrome prefs.
+  select {
+    -webkit-appearance: none;
+    -webkit-padding-before: 6px;
+    -webkit-padding-after: 6px;
+    -webkit-padding-start: 7px;
+    -webkit-padding-end: 20px;
+  
+    color: $default-button-text-color;
+    font-size: $font-size-medium;
+    border: 1px solid darken($default-button-color, 15%);
+    border-bottom-color: darken($default-button-color, 25%);
+  
+  //  @include text-shadow(0px 1px 0px rgba(255,255,255,0.35));
+    @include box-shadow(0px 1px 1px rgba(0,0,0,0.15));
+    @include border-radius($default-button-border-radius);
+    display: inline-block();
+  
+    background-image: -webkit-image-set(url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAICAYAAAAbQcSUAAAAaUlEQVQoz2P4//8/A7UwdkEGhiggTsODo4g2LBEImJmZvwE1/UfHIHGQPNGGAbHCggULFrKxsf1ENgjEB4mD5EnxJoaByAZB5Yk3DNlAPj6+L8gGkWUYzMC3b982IRtEtmFQjaxYxDAwAGi4TwMYKNLfAAAAAElFTkSuQmCC') 1x, url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAQCAYAAACV3GYgAAAAWklEQVRIx+3VOwoAIAwD0B49N686CCJ+K0aHFrIl8LaKqsqvEccxcPEQo8bgNs4KTBth4HaByCMWbhWIcsDEzYCoy2xcD4hW8QWuBqJXeoXLQIwK/iEc57iDBIg+ClNpjek/AAAAAElFTkSuQmCC') 2x), linear-gradient(top,$default-button-color, darken($default-button-color, 5%));
+    background-position: right center;
+    background-repeat: no-repeat;
+  }
+} // ENDIF $with-option-select
+
+.field {
+  margin-bottom: 10px;
+  padding: 0px $grid-form-field-padding;
+  position: relative;
+  z-index: 1;
+  
+  input[type=text], input[type=email], input[type=tel], input[type=url],
+  input[type=number], input[type=password], input[type=search], .text-input, textarea,
+  input[type=date], input[type=week], input[type=month],
+  input[type=time], input[type=datetime], input[type=datetime-local] {
+    margin: 0 -5px 0.5em;
+    width: 100%;
+    display: block;
+  }
+  
+  label, select {
+    margin-left: -5px;
+    margin-right: 10px;
+  }
+  
+  .hint {
+    font-size: $font-size-fine;
+    font-style: italic;
+    color: $light-gray;
+    margin: 0;
+  }
+  
+  @if $with-field-message == true {
+    .field-message {
+      position: relative;
+      font-size: $font-size-fine;
+      margin: 0px;
+    }
+  }
+
+  @if $with-error-message == true {
+    &.with-error {
+
+      label {
+        color: $alert;
+      }
+
+      input {
+        border-color: $alert;
+        color: $alert;
+        background-color: lighten($alert, 50%);
+      }
+      
+      @if $with-field-message {
+        .field-message {
+          color: $alert;
+        }
+      } // ENDIF $with-field-message
+    }
+  } // ENDIF $with-error-message
+
+  @if $with-notice-message == true {
+    &.with-notice {
+
+      label {
+        color: darken($warning, 10%);
+      }
+
+      input {
+        border-color: darken($warning, 10%);
+        color: darken($warning, 20%);
+        background-color: lighten($warning, 35%);
+      }
+      
+      @if $with-field-message {
+        .field-message {
+          color: darken($warning, 10%);
+        }
+      } // ENDIF $with-field-message
+    }
+  } // ENDIF $with-notice-message
+
+  @if $with-success-message {
+    &.with-success {
+
+      label {
+        color: darken($confirm, 5%);
+      }
+
+      input {
+        border-color: darken($confirm, 5%);
+        color: darken($confirm, 5%);
+        background-color: lighten($confirm, 55%);
+      }
+      
+      @if $with-field-message {
+        .field-message {
+          color: darken($confirm, 5%);
+        }
+      } // ENDIF $with-field-message
+    }
+  } // ENDIF $with-success-message
+  
+}
+
+.actions {
+  padding: 20px;
+  background: lighten($silver, 18%);
+  border-top: 1px solid lighten($silver, 12%);
+  text-align: right;
+  
+  a {
+    color: desaturate($primary, 50%);
+    &:hover {
+      color: $primary;
+    }
+  }
+  
+  .disclaimer {
+    margin: 0;
+    padding: 9px 0;
+    text-align: left;
+    font-size: $font-size-fine;
+    line-height: $font-size-fine;
+    float: left;
+  }
+}
+
+@if $with-placeholder-animations {
+  ::-webkit-input-placeholder {
+    opacity: 1;
+    -webkit-transition: opacity 0.15s linear;
+  }
+  :-moz-input-placeholder {
+    opacity: 1;
+    -moz-transition: opacity 0.15s linear;
+  }
+  :input-placeholder {
+    opacity: 1;
+    transition: opacity 0.15s linear;
+  }
+
+
+  input:focus, textarea:focus {
+    &::-webkit-input-placeholder {
+      opacity: 0;
+    }
+    &:-moz-input-placeholder {
+      opacity: 0;
+    }
+    &:input-placeholder {
+      opacity: 0;
+    }
+  }
+} // ENDIF $with-placeholder-animations

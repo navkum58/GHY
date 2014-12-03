@@ -1,0 +1,69 @@
+//  --------------------------------------------------------------------------
+//  Colors
+//  --------------------------------------------------------------------------
+		
+    // Color Applications
+    $selection-color:                         #b3d4fc!default;
+    $link-color:        darken($selection-color, 35%)!default;
+    $link-active-color: darken($selection-color, 50%)!default;
+    $link-hover-color:  darken($selection-color, 25%)!default;
+    
+    // Base Colors
+    $red:                        #D01616!default;
+    $light-red:    lighten($red,    15%)!default;
+    $dark-red:     darken( $red,    15%)!default;
+		
+    $orange:                     #ff6622!default;
+    $light-orange: lighten($orange, 15%)!default;
+    $dark-orange:  darken( $orange, 15%)!default;
+    
+    $yellow:                     #E4C419!default;
+    $light-yellow: lighten($yellow, 10%)!default;
+    $dark-yellow:  darken( $yellow, 15%)!default;
+    
+    $green:                      #3DA20E!default;
+    $light-green:  lighten($green,  15%)!default;
+    $dark-green:   darken( $green,  15%)!default;
+		
+    $blue:                       #196AE4!default;
+    $light-blue:   lighten($blue,   15%)!default;
+    $dark-blue:    darken( $blue,   15%)!default;
+		
+    $indigo:                     #3C00B3!default;
+    $light-indigo: lighten($indigo, 15%)!default;
+    $dark-indigo:  darken( $indigo, 15%)!default;
+		
+    $violet:                     #6C0091!default;
+    $light-violet: lighten($violet, 15%)!default;
+    $dark-violet:  darken( $violet, 15%)!default;
+
+    // Shades of Gray
+    $white:          hsl(0,0,100%)!default; // #fff
+    $light-silver:   hsl(0,0, 90%)!default; // #e5e5e5
+    $silver:         hsl(0,0, 80%)!default; // #ccc
+    $dark-silver:    hsl(0,0, 70%)!default; // #b3b3b3
+    $light-gray:     hsl(0,0, 60%)!default; // #999
+    $gray:           hsl(0,0, 50%)!default; // #808080
+    $dark-gray:      hsl(0,0, 40%)!default; // #666
+    $light-charcoal: hsl(0,0, 30%)!default; // 4d4d4d
+    $charcoal:       hsl(0,0, 20%)!default; // #333
+    $dark-charcoal:  hsl(0,0, 10%)!default; // #1a1a1a
+    $black:          hsl(0,0,  0%)!default; // #000
+    
+    // Link Colors
+
+
+    // Pallette
+    $primary:          rgb(241, 91, 64)!default;   // Think Shift Rorange
+    $accent:           rgb(108, 103, 157)!default; // Think Shift Purple
+    $highlight:        rgb(223, 226, 90)!default;  // Think Shift Yellow
+    $primary-contrast: invert($primary)!default;   // A light blue
+    
+    // Status Colours
+    $info:    $blue!default;   // blue
+    $alert:   $red!default;    // red
+    $warning: $yellow!default; // amber
+    $confirm: $green!default;  // green
+
+    //Custom Colors
+    $parrotgreen: rgb(163,197,59)!default;// custom color for GHY

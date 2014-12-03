@@ -1,0 +1,75 @@
+// =============================================================================
+// Table.scss
+// =============================================================================
+.table {
+  width: 100%;
+  
+  td, th {
+    border-bottom: 1px solid lighten($silver, 10%);
+    padding: .5em 1em;
+    text-align: left;
+    background: white;
+  }
+  
+  tbody {
+    tr:last-child {
+      td, th {
+        border-bottom: none;
+      }
+    }
+  }
+  
+  thead {
+    td, th {
+      font-weight: bold;
+    }
+  }
+  
+  tfoot {
+    td, th {
+      border-bottom: none;
+      border-top: 1px solid lighten($silver, 10%);
+      font-weight: bold;
+    }
+  }
+  
+  &.with-borders {
+    border: 1px solid lighten($silver, 10%);
+    
+    td, th {
+      border: 1px solid lighten($silver, 10%);
+    }
+    
+    th {
+      background: lighten($silver, 18%);
+    }
+    
+    tfoot {
+      th, td {
+        background: lighten($silver, 10%);
+        border-top: 1px solid $silver;
+      }
+    }
+  }
+  
+  &.with-stripes {
+    tbody {
+      tr:nth-child(odd) {
+        td, th {
+          background: lighten($silver, 18%);
+        }
+      }
+    }
+  }
+  
+  &.with-row-hover {
+    tbody {
+      tr:hover {
+        th, td {
+          background: lighten($silver, 18%);
+        }
+      }
+    }
+  }
+  
+}

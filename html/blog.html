@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]>      <html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en-US" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en-US" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <title>GHY</title>
+  
+  <meta name="description" content=">>> REPLACE THIS TEXT <<<">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <script src="js/libs/modernizr/modernizr.custom.34454.js"></script>
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <!-- Google Web Font -->
+ <link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<script>
+    $(document).ready(function(){
+     $('.accordion dd').hide();
+         $('.accordion dd:first').show();
+      $('.accordion dt').click(function(){
+      // after clicking a question, close any open answers in the list:
+      $(this).siblings('dd').slideUp();
+      // show the answer (item directly after the question) if it is currently hidden
+      if($(this).next().is(':hidden')) {
+        $(this).next().slideDown();
+        }
+      });
+  $('.accordion > dd > a').click(function() {
+    $('.accordion > dd > .active').removeClass('active');
+    $(this).closest('a').addClass('active');
+});
+     $('.mobileNav > ul > li').click(function() {
+    $('.mobileNav > ul > .active').removeClass('active');
+    $(this).closest('li').addClass('active');
+});
+       $("a.innerMenu").mouseenter(function(){ 
+           $('ul.subMenu').show(); 
+         }); 
+       $(".subMenu").mouseleave(function(){
+             $('ul.subMenu').hide(); 
+       });
+         $(".masthead").mouseenter(function(){
+             $('ul.subMenu').hide(); 
+       });
+        $(".menuIcon").click(function(){
+  $(".moBsubMenu").slideToggle('slow',function(){ 
+    var getParent = $(this).parent('li');
+            $(getParent).toggleClass("active");
+          
+          });
+ });
+         $(".mobInnermenu").click(function(){
+   $(".moBsubMenu").slideToggle('slow');
+ });
+
+          //Check to see if the window is top if not then display button
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+      $('.scrollToTop').fadeIn();
+    } else {
+      $('.scrollToTop').fadeOut();
+    }
+  });
+  
+  //Click event to scroll to top
+  $('.scrollToTop').click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
+    });
+</script>
+</head>
+<body>
+<header class="masthead clearfix">
+  <div class="container grid">
+  <ul class="nav-h nav-v-switch pull-right utilNav">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="#">Client Utilities</a></li>
+      <li><form class="searchSection" action="/search" method="post" novalidate>            
+          <input class="searchBox" type="text" maxlength="100" placeholder="Search" autocomplete="off" name="txtSearch">
+  <i class="fa fa-search"></i> 
+          </form>
+      </li>
+  </ul>
+  </div>
+</header>
+
+
+<!-- Top Section -->
+  <section class="coverImg" style="background-image:url(img/career_t_bg.jpg);">
+      <div class="container grid">
+       <a class="menuIcon" href="#">
+            <i class="fa fa-bars"></i> 
+            Menu
+          </a>
+            <div class="mobileNav">
+               <ul>
+             <span class="arrow-down mobileArrow"></span>
+                   <li><a class="mobInnermenu" href="javascript:void(0)"> Trade Solutions &nbsp; <i class="fa fa-caret-down "></i></a>
+                       <ul class="moBsubMenu">
+                        <li><a href="#">Consulting & Compliance</a></li>
+                        <li><a href="#">Canadian Customs Brokers</a></li>
+                        <li><a href="#">US Customs Brokers</a></li>
+                        <li><a href="#">Duty Drawbacks & Refunds</a></li>
+                        <li><a href="#">Freight Forwarding</a></li>
+                        <li><a href="#">Distribution</a></li>
+                        <li><a href="#">Software</a></li>
+                     
+                      </ul>
+                   </li>
+                   <li><a href="javascript:void(0)"> Resources</a></li>
+                   <li><a href="javascript:void(0)"> Trade Compliance</a></li>
+                   <li><a href="javascript:void(0)"> Tradelines News</a></li>
+                   <li><a href="javascript:void(0)"> Events</a></li>
+                   <li><a href="javascript:void(0)">About</a></li>
+                   <li><a href="javascript:void(0)">Contact Us</a></li>
+                   <li class="active"><a href="careers.html">Careers</a></li>
+                   <li><a href="javascript:void(0)">Client Utilities</a></li>
+                   <li class="bodNone" ><form class="searchSection" action="/search" method="post" novalidate>  
+                   <div class="mobsearchBox" >          
+          <input class="searchPanel" type="text" maxlength="100" placeholder="Search" autocomplete="off" name="txtSearch">
+          <a class="searchIcon" href="#">
+  <i class="fa fa-search "></i> </a>
+  </div>
+          </form>
+      </li>
+              </ul>
+          </div>
+          <div class="mobileBrand pull-right">
+          <a href="index.html"> <img src="img/logo.png"></a>
+          </div>
+         
+          <div class="navigation pull-left">
+              <nav class="primary-navigation mainNav pull-left" role="navigation">
+                 <ul>
+                   <li><a class="innerMenu" href="#"> Trade Solutions</a>
+                    <div id="test">
+                        <ul class="subMenu">
+                        <span class="arrow-down"></span>
+                        <li><a href="#">Consulting & Compliance</a></li>
+                        <li><a href="#">Canadian Customs Brokers</a></li>
+                        <li class="active"><a href="#">US Customs Brokers</a></li>
+                        <li><a href="#">Duty Drawbacks & Refunds</a></li>
+                        <li><a href="#">Freight Forwarding</a></li>
+                        <li><a href="#">Distribution</a></li>
+                        <li class="bodNone"><a href="#">Software</a></li>
+                     
+                      </ul>
+                      </div>
+                   </li>
+                   <li><a href="#"> Resources</a></li>
+                   <li><a href="#"> Trade Compliance</a></li>
+                   <li><a href="#"> Tradelines News</a></li>
+                   <li><a href="#"> Events</a></li>
+                 </ul>
+              </nav>   
+              
+          </div>
+          <div class="brand pull-right clearfix">
+              <a href="index.html"><img  alt="GHY logo" class="" src="img/logo.png"></a>
+              </div>
+              <div class="clearfix"></div>
+      </div>  
+  </section>
+<!-- /Top Section -->
+<section class="coverImg tradeTop" style="background-image:url(img/blog_t.jpg);">
+    <div class="container grid">
+    <center>
+      <div class="col colspan12">
+        <h1>Trade Compliance Blog</h1>
+        <p>
+          A place to discuss trade regulations, proactive<br/>
+       compliance strategies abd related topics.</p>
+      </div>
+      </center>
+    </div>
+</section>
+
+<!-- /Top Section -->
+<section class="blog">
+    <div class="container grid">
+        <div class="col colspan4">
+        <dl class="accordion">
+
+<dt><a  href="javascript:void(0)">Categories <i class="fa fa-angle-down pull-right"></i></a></dt>
+<dd>
+<a href="javascript:void(0)">Announcements & News</li></a>
+<a href="javascript:void(0)"> Anti Dumping</a>
+<a href="javascript:void(0)"> Assists</a>
+<a href="javascript:void(0)">Canadian Customs Issues</a>
+<a href="javascript:void(0)"> Case Studies</a>
+<a href="javascript:void(0)"> Compliance</a>
+<a href="javascript:void(0)"> Duty Drawbacks</a>
+<a href="javascript:void(0)"> E-manifest</a>
+<a href="javascript:void(0)"> Events</a>
+<a href="javascript:void(0)"> Exports</a>
+<a class="active" href="javascript:void(0)"> International Trade</a>
+<a href="javascript:void(0)"> Legal</a>
+<a href="javascript:void(0)"> Models</a>
+<a href="javascript:void(0)"> NAFTA</a>
+<a href="javascript:void(0)"> North American Security Perimeter</a>
+<a href="javascript:void(0)"> Resources</a>
+<a class="bodLast" href="javascript:void(0)"> Tweets</a>
+</dd>
+
+<dt><a href="javascript:void(0)">Tags <i class="fa fa-angle-down pull-right"></i></a></dt>
+<dd>
+<a href="javascript:void(0)">Lorem Ipsum</li></a>
+<a href="javascript:void(0)">Lorem Ipsum</li></a>
+<a class="bodLast"  href="javascript:void(0)">Lorem Ipsum</li></a>
+</dd>
+
+<dt><a  href="javascript:void(0)">Authors <i class="fa fa-angle-down pull-right"></i></a></dt>
+<dd>
+<a href="javascript:void(0)">Lorem Ipsum</li></a>
+<a href="javascript:void(0)">Lorem Ipsum</li></a>
+<a class="bodLast" href="javascript:void(0)">Lorem Ipsum</li></a>
+</dd>
+<dt><a href="#">Archives <i class="fa fa-angle-down pull-right"></i></a></dt>
+<dd>
+<a href="javascript:void(0)">Lorem Ipsum</li></a>
+<a href="javascript:void(0)">Lorem Ipsum</li></a>
+<a class="bodLast" href="javascript:void(0)">Lorem Ipsum</li></a>
+</dd>
+
+</dl>
+        </div>
+        <div class="col colspan8 article">
+          <p class="breadcrums"><i>Trade Compliance > <a href="#">International Trade </a>> article</i></p>
+          <div class="tradeArticle">
+          <h2>Establishing a Trading <br/>Company in India</h2> 
+          <div class="authorTag">
+          <p><b>By Martin Rayner . Posted October 1, 2013</b></p>
+          <p>Under <b><a href="#">Compliance,</a> <a href="#">International Trade,</a> <a href="#">Legal Strategy</a></b></p>
+          </div>
+          <p class="paratxt">India is fast emerging as a global trade dynamo with its vast natural resources and huge supply of skilled labor. Undertaking considerable industrial deregulation and other structural reforms, regulators in India recognizes that strong exports are critical for overall economic growth and poverty reduction. As such, export-led growth has become a key driver of trade.</p>
+          <p>
+            Indian trade has grown exponentially over the past few years, with exports rising at a rate well above the pace of growth of worldwide exports. In this atmosphere, opportunities have never been greater, and starting a trading business in India has never been easier. </p>
+          <h4> <b> Establishing a Trading Business in India</b></h4>
+          <p></p>
+          <p>
+Starting an export-import business with the right strategies can render a business very profitable. However, the long term success and profitability of an import business depends greatly on the importer’s knowledge and understanding of international procedures in addition to a keen analysis of the foreign and procedure-centric market in India. So, to execute a successful dive into the pool, one must follow a time-tested and exact set of steps, which are generally rigid and absolutely necessary.</p>
+<p>
+Furthermore, it is important for prospective investors looking to start an export-import business in India to obtain all of the necessary information with regard to matters associated with foreign trade agreements, which thus requires a lot of preparation time.</p>
+<p>
+Here is a short flowchart detailing the process below:</p>
+<div class="act">
+        <div class="media ">
+          <span>1</span>
+          <div class="media-body">
+            <p>Establish your company following guidelines provided in the companies Act;</p>
+           
+          </div>
+        </div>   
+        <div class="media ">
+         <span>2</span> <div class="media-body">
+            <p>Apply for an importer Exporter Code (IEC) from the relevant regional office of the Director General of Foreign Trade (DGFT);</p>
+           
+          </div>
+        </div>  
+         <div class="media ">
+        <span>3</span>
+          <div class="media-body">
+            <p>Obtain an Import License;</p>
+           
+          </div>
+        </div>  
+         <div class="media ">
+          <span>4</span>
+          <div class="media-body">
+            <p>Register with the regional office of Export Promotion Council and relevent tax authorities, including the Sales Ta Office and Export Credit Guarantee Corporation;</p>
+           
+          </div>
+        </div>  
+         <div class="media ">
+          <span>5</span>
+          <div class="media-body">
+            <p>Obtain an Export Licencse and Certificate of Origin for export porposes from the Chamber of Commerce; and finally</p>
+           
+          </div>
+        </div>  
+         <div class="media ">
+         <span>6</span>
+          <div class="media-body">
+            <p>Begin trading.</p>
+           
+          </div>
+        </div>   
+  </div>  
+    <p></p>     
+        <p>Read the <a href="#">complete article.</a></p>
+        <p></p>
+        <h4>You might also like:</h4>
+
+            <div class="likes">
+                <ul>
+                  <li class="paddingLnone">
+          <img src="img/like1.jpg" alt="Temp" class="media-head">
+           <a href="">Lopem Ipsum dolar sit amet.</a> 
+          </li>
+          <li>
+          <img src="img/like2.jpg" alt="Temp" class="media-head">
+           <a href="">Lopem Ipsum dolar sit amet.</a> 
+          </li>
+          <li>
+          <img src="img/like3.jpg" alt="Temp" class="media-head bodNone">
+           <a href="">Lopem Ipsum dolar sit amet.</a> 
+          </li>
+                </ul>
+            </div>
+            <ul class="socialIconsblog">
+         <li><a href="#" class=""><i class="fa fa-twitter"></i></a></li>
+         <li><a href="#" class=""><i class="fa fa-facebook-square"></i></a></li>
+         <li><a href="#" class=""><i class="fa fa-linkedin-square"></i></a></li>
+        <li><a href="#" class=""><i class="fa fa-rss"></i></a></li>
+       </ul>
+       <div class="clearfix"></div>
+       <div class="comment">
+          <div class="media ">
+          <div class="media-body commentSection">
+            <span>3</span><a href="#" class="pull-left">Comments</a>
+           <a href="#" class="pull-right">Leave a comment</a>
+          </div>
+        </div> 
+        <hr> 
+        <p><i>Tags:<a href="#"> Global Trade Compliance,</a><a href="#"> India</a></i> </p>
+       </div>
+          </div>
+          <div class="col colspan12 btnControl">
+              <button type="button" class="btn ghyinfo"> <i class="fa fa-angle-left"></i> &nbsp;&nbsp;Previous Article</button>
+          <button type="button" class="btn pull-right ghyinfo"> Next Article &nbsp;&nbsp;<i class="fa fa-angle-right"></i></button>
+          </div>
+
+        </div>
+        <a href="#" class="scrollToTop"> > Back To Top</a>
+    </div>
+</section>
+
+<div class="clearfix"></div>  
+<footer class="baseplate darkblue main">
+   <div class="container grid">
+     <div class="col colspan4">
+     
+       <div class="company">
+       <a class="footerLogo" href="index.html"><img class="img-responsive " src="img/logo.png"></a>
+       <div class="pull-left">
+        <h3><b> GHY International</b></h3>
+        <p>GEO H. YOUNG & CO. LTD. I GHY USA INC.</p>
+        </div>
+      
+     </div>
+     </div>
+     <div class="col colspan5 address">
+     <div class="col colspan6">
+       <p><b><label>Head Office</label></b></p>
+       <div class="clearfix"></div>
+       <p>809-167 Lombard Street</p>
+       <p>Winnipeg, Manitoba</p>
+       <p>Canada R3B 3H8</p>
+     </div>  
+     <div class="col colspan6">
+       <p><b><label> Call us </label>(204) 947.6851 </b> </p>
+       <p><label> Toll Free </label>(204) 947.3306 </p>
+      <p><label>Email us </label> dewar@ghy.com </p>
+     </div>  
+     </div>
+     <div class="col colspan3">
+      <ul class="socialIcons">
+         <li><a href="#" class=""><i class="fa fa-twitter"></i></a></li>
+         <li><a href="#" class=""><i class="fa fa-facebook-square"></i></a></li>
+         <li><a href="#" class=""><i class="fa fa-linkedin-square"></i></a></li>
+       </ul>
+     </div>
+    
+      <div class="col colspan8 colshift4">
+       <div class="copyright">
+       <div class="col colspan7">
+       <p> Copyright info. All right reserved. </p>
+       </div>
+        <div class="col colspan5 policy">
+       <a href="#">Privacy Policy</a><a href="#">Terms of Use</a>
+       </div>
+       </div>
+     </div>
+    </div>
+</footer>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/min/thinkshift-ck.js"></script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body>
+</html>

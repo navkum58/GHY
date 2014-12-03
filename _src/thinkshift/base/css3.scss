@@ -1,0 +1,335 @@
+// =============================================================================
+// CSS3.scss
+// -----------
+// =============================================================================
+
+// --------------------------------------------------------------------------
+// Vendor Prefix
+// -------------
+// Allows the creation of any vendor prefix property, as long as they're
+// all the same property for the different vendor prefixes.
+// for multiple properties, use a string:
+// @include -v(box-shadow, 0px 1px 0px black, inset 0px 1px 0px white);
+// --------------------------------------------------------------------------
+@mixin -v($property, $values...) {
+  
+  $browser-support: support-for($property);
+  @each $vendor in $browser-support {
+    #{$vendor}#{$property}: $values;
+  }
+         
+}
+
+// --------------------------------------------------------------------------
+// Box Shadow
+// --------------------------------------------------------------------------
+@mixin box-shadow($values...) {
+	@include -v(box-shadow, $values...);
+}
+
+// --------------------------------------------------------------------------
+// Text Shadow
+// --------------------------------------------------------------------------
+@mixin text-shadow($values...) {
+	@include -v(text-shadow, $values...);
+}
+
+// --------------------------------------------------------------------------
+// Transition
+// --------------------------------------------------------------------------
+@mixin transition($values...) {
+	@include -v(transition, $values...);
+}
+
+// --------------------------------------------------------------------------
+// Transform
+// --------------------------------------------------------------------------
+@mixin transform($values...) {
+	@include -v(transform, $values...);
+}
+
+// --------------------------------------------------------------------------
+// Animation
+// --------------------------------------------------------------------------
+@mixin animation($values...) {
+	@include -v(animation, $values...);
+}
+
+@mixin animation-name($value) {
+  @include -v(animation-name, $value);
+}
+
+@mixin animation-duration($value) {
+  @include -v(animation-duration, $value);
+}
+
+@mixin animation-timing-function($value) {
+  @include -v(animation-timing-function, $value);
+}
+
+@mixin animation-delay($value) {
+  @include -v(animation-delay, $value);
+}
+
+@mixin animation-iteration-count($value) {
+  @include -v(animation-iteration-count, $value);
+}
+
+@mixin animation-direction($value) {
+  @include -v(animation-direction, $value);
+}
+
+// --------------------------------------------------------------------------
+// Border Radius
+// --------------------------------------------------------------------------
+@mixin border-radius($values) {
+	@include -v(border-radius, $values);
+}
+
+@mixin border-top-left-radius($value) {
+  @include -v(border-top-left-radius, $value);
+}
+
+@mixin border-top-right-radius($value) {
+  @include -v(border-top-right-radius, $value);
+}
+
+@mixin border-bottom-left-radius($value) {
+  @include -v(border-bottom-left-radius, $value);
+}
+
+@mixin border-bottom-right-radius($value) {
+  @include -v(border-bottom-right-radius, $value);
+}
+
+// --------------------------------------------------------------------------
+// Border Radius Utility
+// --------------------------------------------------------------------------
+// lets you generate individual radius calls
+// by optionally placing in values in the following
+// order: top left, top right, bottom right, bottom left
+// no values = no output.
+@mixin border-radius-utility($topLeft:false, $topRight:false, $bottomRight:false, $bottomLeft:false) {
+  
+  @if $topLeft != false { @include border-top-left-radius($topLeft); }
+  @if $topRight != false { @include border-top-right-radius($topRight); }
+  @if $bottomLeft != false { @include border-bottom-left-radius($bottomLeft); }
+  @if $bottomRight != false { @include border-bottom-right-radius($bottomRight); }
+
+}
+
+
+// --------------------------------------------------------------------------
+// Linear Gradient
+// --------------------------------------------------------------------------
+// background-image: linear-gradient($values);
+@function linear-gradient($values...) {
+  
+  $browser-support: support-for(linear-gradient);
+  $output: '';
+  $number-of-items: length($browser-support);
+  
+  @for $i from 1 through $number-of-items {
+    @if $i > 1 {
+      $output: $output + '; background-image: ';
+      
+    }
+    $output: $output + nth($browser-support, $i) + 'linear-gradient(' + $values +')';
+  }
+  
+  @return #{$output};
+}
+
+// --------------------------------------------------------------------------
+// Radial Gradient
+// --------------------------------------------------------------------------
+// background-image: radial-gradient($values);
+@function radial-gradient($values...) {
+  
+  $browser-support: support-for(radial-gradient);
+  $output: '';
+  $number-of-items: length($browser-support);
+  
+  @for $i from 1 through $number-of-items {
+    @if $i > 1 {
+      $output: $output + '; background-image: ';
+      
+    }
+    $output: $output + nth($browser-support, $i) + 'radial-gradient(' + $values +')';
+  }
+  
+  @return #{$output};
+}
+
+// --------------------------------------------------------------------------
+// Flexbox
+// --------------------------------------------------------------------------
+// display: box();
+@function box() {
+  $browser-support: support-for(box);
+  $output: '';
+  $number-of-items: length($browser-support);
+  
+  @for $i from 1 through $number-of-items {
+    @if $i > 1 {
+      $output: $output + '; display: ';
+    }
+    
+    $output: $output + nth($browser-support, $i) + 'box';
+  }
+}
+
+@mixin box-orient($value) {
+  @include -v(box-orient, $value);
+}
+
+@mixin box-direction($value) {
+  @include -v(box-direction, $value);
+}
+
+@mixin box-flex($value) {
+  @include -v(box-flex, $value);
+}
+
+@mixin box-pack($value) {
+  @include -v(box-pack, $value);
+}
+
+@mixin box-align($value) {
+  @include -v(box-align, $value);
+}
+
+
+// --------------------------------------------------------------------------
+// Columns
+// --------------------------------------------------------------------------
+@mixin column-count($value) {
+  @include -v(column-count, $value);
+}
+
+@mixin column-gap($value) {
+  @include -v(column-gap, $value);
+}
+
+@mixin column-rule($value) {
+  @include -v(column-rule, $value);
+}
+
+@mixin column-rule-width($value) {
+  @include -v(column-rule-width, $value);
+}
+
+@mixin column-rule-style($value) {
+  @include -v(column-rule-style, $value);
+}
+
+@mixin column-rule-color($value) {
+  @include -v(column-rule-color, $value);
+}
+
+@mixin column-span($value) {
+  @include -v(column-span, $value);
+}
+
+@mixin column-fill($value) {
+  @include -v(column-fill, $value);
+}
+
+
+// --------------------------------------------------------------------------
+// Reading Direction Agnostic Margins and Padding
+// --------------------------------------------------------------------------
+@mixin padding-before($value) {
+  @include -v(padding-before, $value);
+}
+
+@mixin padding-end($value) {
+  @include -v(padding-end, $value);
+}
+
+@mixin padding-after($value) {
+  @include -v(padding-after, $value);
+}
+
+@mixin padding-start($value) {
+  @include -v(padding-start, $value);
+}
+
+@mixin margin-before($value) {
+  @include -v(margin-before, $value);
+}
+
+@mixin margin-end($value) {
+  @include -v(margin-end, $value);
+}
+
+@mixin margin-after($value) {
+  @include -v(margin-after, $value);
+}
+
+@mixin margin-start($value) {
+  @include -v(margin-start, $value);
+}
+
+
+// --------------------------------------------------------------------------
+// Breakpoints
+// --------------------------------------------------------------------------
+$breakpoint_handheld_min_width: 280px!default;
+$breakpoint_handheld_max_width: 600px!default;
+$breakpoint_tablet_min_width:   600px!default;
+$breakpoint_tablet_max_width:  1000px!default;
+$breakpoint_monitor_min_width: 1000px!default;
+$breakpoint_monitor_max_width: 3600px!default;
+
+@mixin breakpoint($size) {
+  
+  // -----------------
+  // MONITOR
+  // -----------------
+  @if ($size == 'monitor' or $size == 'monitor and more') {
+    @media only screen and (min-width: $breakpoint_monitor_min_width) { @content }
+  }
+  
+  @else if ($size == 'monitor and less') {
+    @media only screen and (max-width: $breakpoint_monitor_max_width) { @content }
+  }
+  
+  // -----------------
+  // TABLET
+  // -----------------
+  @else if( $size == 'tablet') {
+    @media only screen and (min-width: $breakpoint_tablet_min_width) and (max-width: $breakpoint_tablet_max_width) { @content }
+  }
+  
+  @else if ($size == 'tablet and more') {
+    @media only screen and (min-width: $breakpoint_tablet_min_width) { @content }
+  }
+  
+  @else if ($size == 'tablet and less') {
+    @media only screen and (max-width: $breakpoint_tablet_max_width) { @content }
+  }
+  
+  // -----------------
+  // HANDHELD
+  // -----------------
+  @else if ($size == 'handheld') {
+    @media only screen and (min-width: $breakpoint_handheld_min_width) and (max-width: $breakpoint_handheld_max_width) { @content }
+  }
+  
+  @else if ($size == 'handheld and more') {
+    @media only screen and (min-width: $breakpoint_handheld_min_width) { @content }
+  }
+  
+  @else if ($size == 'handheld and less') {
+    @media only screen and (max-width: $breakpoint_handheld_max_width) { @content }
+  }
+  
+  // -----------------
+  // CUSTOM EXPRESSION
+  // -----------------
+  @else if (type-of($size) == string) {
+    @media #{$size} { @content }
+  }
+  
+}

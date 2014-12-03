@@ -1,0 +1,62 @@
+$with-error:   true!default;
+$with-notice:  true!default;
+$with-info:    true!default;
+$with-success: true!default;
+
+.message-box {
+  position: relative;
+  background: lighten($silver, 10%);
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid darken($silver, 20%);
+  
+  @include box-shadow(0px 1px 1px rgba(0,0,0,0.15))
+}
+
+@if $with-error == true {
+  .error, .message-box.error {
+    border-color: lighten($alert, 25%);
+    background-color: lighten($alert, 40%);
+    color: darken($alert, 10%);
+  
+    td, th {
+      @extend .error;
+    }
+  }
+} // ENDIF $with-error
+
+@if $with-notice == true {
+  .notice, .message-box.notice {
+    border-color: lighten($warning, 10%);
+    background-color: lighten($warning, 40%);
+    color: darken($warning, 20%);
+  
+    td, th {
+      @extend .notice;
+    }
+  }
+} // ENDIF $with-notice
+
+@if $with-info == true {
+  .info, .message-box.info {
+    border-color: lighten($info, 15%);
+    background-color: lighten($info, 40%);
+    color: darken($info, 10%);
+  
+    td, th {
+      @extend .info;
+    }
+  }
+} // ENDIF $with-info
+
+@if $with-success == true {
+  .success, .message-box.success {
+    border-color: lighten($confirm, 30%);
+    background-color: lighten($confirm, 55%);
+    color: darken($confirm, 5%);
+  
+    td, th {
+      @extend .success;
+    }
+  }
+} // ENDIF $with-success

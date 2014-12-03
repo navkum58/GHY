@@ -1,0 +1,23 @@
+// =============================================================================
+// Images.scss
+// ------------
+// =============================================================================
+
+.img-circle {
+  @include border-radius(50%);
+  @include box-shadow(0px 0px 0px 3px white, 0px 1px 7px rgba(0,0,0,0.8))
+}
+
+.img-rounded {
+  @include border-radius(20px);
+}
+
+.img-polaroid {
+  @include box-shadow(0px 0px 0px 3px white, 0px 1px 7px rgba(0,0,0,0.8));
+  @include transform(rotate(2deg))
+}
+
+.img-polaroid-alt {
+  @include box-shadow(0px 0px 0px 3px white, 0px 1px 7px rgba(0,0,0,0.8));
+  @include transform(rotate(-2deg))
+}

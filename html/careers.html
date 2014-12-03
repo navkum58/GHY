@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]>      <html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en-US" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en-US" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <title>GHY</title>
+  
+  <meta name="description" content=">>> REPLACE THIS TEXT <<<">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <script src="js/libs/modernizr/modernizr.custom.34454.js"></script>
+  <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+  <script src="js/jquery.bxslider.min.js"></script>
+  
+  <!-- Google Web Font -->
+ <link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+ <script>
+    $(document).ready(function(){
+  $('.bxslider').bxSlider({
+  auto: true,
+  autoControls: true
+});
+    $('.mobileNav > ul > li').click(function() {
+    $('.mobileNav > ul > .active').removeClass('active');
+    $(this).closest('li').addClass('active');
+});
+
+  var allPanels = $('.accordion > dd').hide();
+  $('.accordion > dt > a').click(function() {
+    allPanels.slideUp();
+    $(this).parent().next().slideDown();
+    return false;
+  });
+ $("a.innerMenu").mouseenter(function(){ 
+     $('ul.subMenu').show(); 
+   }); 
+ $(".subMenu").mouseleave(function(){
+       $('ul.subMenu').hide(); 
+ });
+   $(".masthead").mouseenter(function(){
+             $('ul.subMenu').hide(); 
+       });
+  $(".menuIcon").click(function(){
+    $(".mobileNav").toggle();
+ });
+   $(".mobInnermenu").click(function(){
+   $(".moBsubMenu").slideToggle('slow',function(){ 
+    var getParent = $(this).parent('li');
+            $(getParent).toggleClass("active");
+          
+          });
+ });
+
+      //Check to see if the window is top if not then display button
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+      $('.scrollToTop').fadeIn();
+    } else {
+      $('.scrollToTop').fadeOut();
+    }
+  });
+  
+  //Click event to scroll to top
+  $('.scrollToTop').click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
+    });
+</script>
+</head>
+<body>
+<header class="masthead clearfix">
+  <div class="container grid">
+  <ul class="nav-h nav-v-switch pull-right utilNav">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a class="active" href="#">Careers</a></li>
+      <li><a href="#">Client Utilities</a></li>
+      <li><form class="searchSection" action="/search" method="post" novalidate>            
+          <input class="searchBox" type="text" maxlength="100" placeholder="Search" autocomplete="off" name="txtSearch">
+  <i class="fa fa-search"></i> 
+          </form>
+      </li>
+  </ul>
+  </div>
+</header>
+
+<!-- Top Section -->
+  <section class="coverImg" style="background-image:url(img/career_t_bg.jpg);">
+      <div class="container grid">
+            <a class="menuIcon" href="#">
+            <i class="fa fa-bars"></i> 
+            Menu
+          </a>
+           <div class="mobileNav">
+               <ul>
+             <span class="arrow-down mobileArrow"></span>
+                   <li><a class="mobInnermenu" href="javascript:void(0)"> Trade Solutions &nbsp; <i class="fa fa-caret-down"></i></a>
+                       <ul class="moBsubMenu">
+                        <li><a href="#">Consulting & Compliance</a></li>
+                        <li><a href="#">Canadian Customs Brokers</a></li>
+                        <li><a href="#">US Customs Brokers</a></li>
+                        <li><a href="#">Duty Drawbacks & Refunds</a></li>
+                        <li><a href="#">Freight Forwarding</a></li>
+                        <li><a href="#">Distribution</a></li>
+                        <li><a href="#">Software</a></li>
+                     
+                      </ul>
+                   </li>
+                   <li><a href="javascript:void(0)"> Resources</a></li>
+                   <li><a href="javascript:void(0)"> Trade Compliance</a></li>
+                   <li><a href="javascript:void(0)"> Tradelines News</a></li>
+                   <li><a href="javascript:void(0)"> Events</a></li>
+                   <li><a href="javascript:void(0)">About</a></li>
+                   <li><a href="javascript:void(0)">Contact Us</a></li>
+                   <li class="active"><a href="careers.html">Careers</a></li>
+                   <li><a href="javascript:void(0)">Client Utilities</a></li>
+                   <li class="bodNone" ><form class="searchSection" action="/search" method="post" novalidate>  
+                   <div class="mobsearchBox" >          
+          <input class="searchPanel"  type="text" maxlength="100" placeholder="Search" autocomplete="off" name="txtSearch">
+          <a class="searchIcon" href="#">
+  <i class="fa fa-search "></i> </a>
+  </div>
+          </form>
+      </li>
+              </ul>
+          </div>
+          <div class="mobileBrand pull-right">
+          <a href="index.html"> <img src="img/logo.png"></a>
+          </div>
+         
+          <div class="navigation pull-left">
+              <nav class="primary-navigation mainNav pull-left" role="navigation">
+                 <ul>
+                   <li><a class="innerMenu" href="#"> Trade Solutions</a>
+                    <div id="test">
+                        <ul class="subMenu">
+                        <span class="arrow-down"></span>
+                        <li><a href="#">Consulting & Compliance</a></li>
+                        <li><a href="#">Canadian Customs Brokers</a></li>
+                        <li class="active"><a href="#">US Customs Brokers</a></li>
+                        <li><a href="#">Duty Drawbacks & Refunds</a></li>
+                        <li><a href="#">Freight Forwarding</a></li>
+                        <li><a href="#">Distribution</a></li>
+                        <li class="bodNone"><a href="#">Software</a></li>
+                     
+                      </ul>
+                      </div>
+                   </li>
+                   <li><a href="#"> Resources</a></li>
+                   <li><a href="#"> Trade Compliance</a></li>
+                   <li><a href="#"> Tradelines News</a></li>
+                   <li><a href="#"> Events</a></li>
+                 </ul>
+              </nav>   
+              
+          </div>
+          <div class="brand pull-right clearfix">
+                <a href="index.html"><img  alt="GHY logo" class="" src="img/logo.png"></a>
+              </div>
+              <div class="clearfix"></div>
+          </div>  
+  </section>
+<!-- /Top Section -->
+  <section class="careerSlider">
+<ul class="bxslider">
+  <li><img src="img/slide1.jpg" />
+  <div class="slideCaption">
+  <center>
+    <h1>Careers at GHY </h1>
+    <p class="paratxt">At GHY we care about people. We think of ourselves as associates.</p>
+    <p class="paratxt">not employees. We care about creating a balance between work and family.</p>
+    <p class="paratxt">and creating an enviorment that allows us to do the job right.</p>
+  </center>
+  </div>
+  </li>
+  <li><img src="img/slide2.jpg" />
+<div class="slideCaption">
+    <center>
+    <h1>Careers at GHY </h1>
+    <p class="paratxt">At GHY we care about people. We think of ourselves as associates.</p>
+    <p class="paratxt">not employees. We care about creating a balance between work and family.</p>
+    <p class="paratxt">and creating an enviorment that allows us to do the job right.</p>
+  </center>
+  </div>
+  </li>
+  <li><img src="img/slide3.jpg" />
+    <div class="slideCaption">
+   <center>
+    <h1>Careers at GHY </h1>
+    <p class="paratxt">At GHY we care about people. We think of ourselves as associates.</p>
+    <p class="paratxt">not employees. We care about creating a balance between work and family.</p>
+    <p class="paratxt">and creating an enviorment that allows us to do the job right.</p>
+  </center>
+  </div>
+  </li>
+  <li><img src="img/slide4.jpg" />
+    <div class="slideCaption">
+    <center>
+    <h1>Careers at GHY </h1>
+    <p class="paratxt">At GHY we care about people. We think of ourselves as associates.</p>
+    <p class="paratxt">not employees. We care about creating a balance between work and family.</p>
+    <p class="paratxt">and creating an enviorment that allows us to do the job right.</p>
+  </center>
+  </div>
+  </li>
+</ul>
+  </section>
+<!-- /Top Section -->
+<section class="careerPosition main">
+    <div class="container grid">
+    <center>
+      <div class="col colspan3">
+        <div class="">
+        <h4>Administration & Management</h4>
+        <p>
+          A brief position category description goes right here.
+        </p>
+        <p><img src="img/iconFly.png"></p>
+        </div>
+      </div>
+      <div class="col colspan3">
+      <div class="careerDetail">
+        <h4>Release & <br/>Customer Service</h4>
+        <p>
+           A brief position category description goes right here.
+        </p>
+        <p><img src="img/iconArrow.png"></p>
+        </div>
+      </div>
+      <div class="col colspan3">
+      <div class="careerDetail">
+        <h4>Consulting &<br/>Business Developement</h4>
+        <p>
+         A brief position category description goes right here.
+        </p>
+        <p><img src="img/iconLines.png"></p>
+        </div>
+      </div>
+       <div class="col colspan3">
+       <div class="careerDetail">
+        <h4>Information <br/>Technology</h4>
+        <p>
+          A brief position category description goes right here.
+        </p>        
+        <p><img src="img/iconInfo.png"></p>
+      </div>
+      </div>
+      </center>
+    </div>
+</section>
+
+<section class="university ">
+    <div class="container grid">
+        <div class="col colspan5 appleSet">
+          <img class="img-responsive"src="img/apple.png">
+        </div>
+
+        <div class="col colspan7">
+            <h1>GHY University</h1>
+            <p class="paratxt">The GHY University program was established in 2009 as a way to continue the intellectual growth of our associates and better their personal life. </p>
+            <p>
+Our goal is to enhance our associate’s technical knowledge of the trade and customs industry, customer service and the professional and business invironment. As of 2013, we have officially begun offering some GHY University courses to our clients.</p>
+           
+            <p><a href="#" class="btn ghydetail">Course Information</a></p>
+        </div>
+    </div>
+</section>
+
+<section class="coreArea">
+    <ul class="bxslider">
+  <li><img src="img/c_bg.jpg" />
+  <div class="container slideCaption">
+  <center>
+    <h1>Our Core Values</h1>
+    <h1 class="captionTxt" ><b>Clients</b> are our focus.</h1>
+  </center>
+  </div>
+     <div class="captionActive">
+        <img src="img/c.png">
+    </div>
+  </li>
+  <li><img src="img/a_bg.jpg" />
+  <div class="container slideCaption">
+  <center>
+    <h1>Our Core Values</h1>
+    <h1 class="captionTxt" ><b>Clients</b> are our focus.</h1>
+  </center>
+  </div>
+     <div class="captionActive">
+        <img src="img/a.png">
+    </div>
+  </li>
+  <li><img src="img/r_bg.jpg" />
+ <div class="container slideCaption">
+  <center>
+    <h1>Our Core Values</h1>
+    <h1 class="captionTxt" ><b>Clients</b> are our focus.</h1>
+  </center>
+  </div>
+     <div class="captionActive">
+        <img src="img/r.png">
+    </div>
+  </li>
+  <li><img src="img/e_bg.jpg" />
+ <div class="container slideCaption">
+  <center>
+    <h1>Our Core Values</h1>
+    <h1 class="captionTxt" ><b>Clients</b> are our focus.</h1>
+  </center>
+  </div>
+     <div class="captionActive">
+        <img src="img/e.png">
+    </div>
+  </li>
+</ul>
+</section>
+<!-- /Top Section -->
+<section class="history main">
+    <div class="container grid">
+        <div class="col colspan8">
+            <h1>Since 1902...</h1>
+            <p class="paratxt">In the late 1800’s, Canada was a work in progress with only seven provinces (Alberta and Saskatchewan joined in 1905). The young nation was struggling to protect its development by means of high trade tariffs on goods that were or could be manufactured domestically.</p>
+
+            <div class="col colspan6 mlNone">
+                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio delenit augue duis dolore te feugait nulla facilisi.</p>
+            </div>
+
+            <div class="col colspan6">
+                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod in legunt saepius.</p>
+            </div>
+        </div>
+        <div class="col colspan4">
+          <img class="img-responsive" src="img/history.jpg">
+        </div>
+        <a href="#" class="scrollToTop"> > Back To Top</a>
+    </div>
+</section>
+
+<div class="clearfix"></div>  
+<footer class="baseplate greenBg main">
+    <div class="container grid">
+     <div class="col colspan4">
+     
+       <div class="company">
+       <a class="footerLogo" href="index.html"><img class="img-responsive " src="img/logo.png"></a>
+        <div class="pull-left">
+        <h3><b> GHY International</b></h3>
+        <p>GEO H. YOUNG & CO. LTD. I GHY USA INC.</p>
+        </div>
+      
+     </div>
+     </div>
+     <div class="col colspan5 address">
+     <div class="col colspan6">
+       <p><b><label>Head Office</label></b></p>
+       <div class="clearfix"></div>
+       <p>809-167 Lombard Street</p>
+       <p>Winnipeg, Manitoba</p>
+       <p>Canada R3B 3H8</p>
+     </div>  
+     <div class="col colspan6">
+       <p><b><label> Call us </label>(204) 947.6851 </b> </p>
+       <p><label> Toll Free </label>(204) 947.3306 </p>
+      <p><label>Email us </label> dewar@ghy.com </p>
+     </div>  
+     </div>
+     <div class="col colspan3">
+      <ul class="socialIcons">
+         <li><a href="#" class=""><i class="fa fa-twitter"></i></a></li>
+         <li><a href="#" class=""><i class="fa fa-facebook-square"></i></a></li>
+         <li><a href="#" class=""><i class="fa fa-linkedin-square"></i></a></li>
+       </ul>
+     </div>
+    
+      <div class="col colspan8 colshift4">
+      <div class="copyright">
+       <div class="col colspan7">
+       <p> Copyright info. All right reserved. </p>
+       </div>
+      <div class="col colspan5 policy">
+       <a href="#">Privacy Policy</a><a href="#">Terms of Use</a>
+       </div>
+      </div>
+     </div>
+    </div>
+</footer>
+
+  <script src="js/min/thinkshift-ck.js"></script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body>
+</html>

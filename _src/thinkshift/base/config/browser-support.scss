@@ -1,0 +1,165 @@
+//  --------------------------------------------------------------------------
+//  Browser Support
+//  --------------------------------------------------------------------------
+    $supports-ie8: true!default;
+    $supports-ie7: true!default;
+    $supports-ie6: false!default;
+    
+//  --------------------------------------------------------------------------
+//  Rules from Caniuse.com
+//  --------------------------------------------------------------------------
+$border-radius:              '';
+$border-top-left-radius:     '';
+$border-top-right-radius:    '';
+$border-bottom-left-radius:  '';
+$border-bottom-right-radius: '';
+$border-image:               '-webkit-', '';
+$box-shadow:                 '';
+$text-shadow:                '';
+                             
+// Transformations
+$transform:                  '-webkit-', '-ms-', '';
+$transform-style:            '-webkit-';
+
+// Animations
+$transition:                 '-webkit-', '';
+$animation:                  '-webkit-', '';
+$animation-name:             '-webkit-', '';
+$animation-duration:         '-webkit-', '';
+$animation-timing-function:  '-webkit-', '';
+$animation-delay:            '-webkit-', '';
+$animation-iteration-count:  '-webkit-', '';
+$animation-direction:        '-webkit-', '';
+                             
+// Gradients                 
+$linear-gradient:            '-webkit-', '';
+$radial-gradient:            '-webkit-', '';
+$repeating-linear-gradient:  '-webkit-', '';
+$repeating-radial-gradient:  '-webkit-', '';
+                             
+// Flex Box                  
+$box:                        '-webkit-', '-moz-', '-ms-', '';
+$box-orient:                 '-webkit-', '-moz-', '-ms-', '';
+$box-direction:              '-webkit-', '-moz-', '-ms-', '';
+$box-flex:                   '-webkit-', '-moz-', '-ms-', '';
+$box-pack:                   '-webkit-', '-moz-', '-ms-', '';
+$box-align:                  '-webkit-', '-moz-', '-ms-', '';
+                             
+// Columns                   
+$column-count:               '-webkit-', '-moz-', '';
+$column-gap:                 '-webkit-', '-moz-', '';
+$column-rule:                '-webkit-', '-moz-', '';
+$column-rule-width:          '-webkit-', '-moz-', '';
+$column-rule-style:          '-webkit-', '-moz-', '';
+$column-rule-color:          '-webkit-', '-moz-', '';
+$column-span:                '-webkit-', '-moz-', '';
+$column-fill:                '-webkit-', '-moz-', '';
+
+// Text-direction agnostic padding and margin
+// before=top, end=right, after=bottom, start=left (LTR)
+// before=top, end=left, after=bottom, start=right (RTL)
+$padding-before:             '-webkit-', '-moz-', '';
+$padding-end:                '-webkit-', '-moz-', '';
+$padding-after:              '-webkit-', '-moz-', '';
+$padding-start:              '-webkit-', '-moz-', '';
+$margin-before:              '-webkit-', '-moz-', '';
+$margin-end:                 '-webkit-', '-moz-', '';
+$margin-after:               '-webkit-', '-moz-', '';
+$margin-start:               '-webkit-', '-moz-', '';
+
+
+// Lookup Tables
+// I know this is hacky, but it's what we've got.
+$css-support:
+  $border-radius,
+  $border-top-left-radius,
+  $border-top-right-radius,
+  $border-bottom-left-radius,
+  $border-bottom-right-radius,
+  $border-image,
+  $box-shadow,
+  $text-shadow,
+  $transform,
+  $transform-style,
+  $transition,
+  $animation,
+  $animation-name,
+  $animation-duration,
+  $animation-timing-function,
+  $animation-delay,
+  $animation-iteration-count,
+  $animation-direction,
+  $linear-gradient,
+  $radial-gradient,
+  $repeating-linear-gradient,
+  $repeating-radial-gradient,
+  $box-orient,
+  $box-direction,
+  $box-flex,
+  $box-pack,
+  $box-align,
+  $column-count,
+  $column-gap,
+  $column-rule,
+  $column-rule-width,
+  $column-rule-style,
+  $column-rule-color,
+  $column-span,
+  $column-fill,
+  $padding-before,
+  $padding-end,
+  $padding-after,
+  $padding-start,
+  $margin-before,
+  $margin-end,
+  $margin-after,
+  $margin-start;
+
+$css-properties:
+  border-radius,
+  border-top-left-radius,
+  border-top-right-radius,
+  border-bottom-left-radius,
+  border-bottom-right-radius,
+  border-image,
+  box-shadow,
+  text-shadow,
+  transform,
+  transform-style,
+  transition,
+  animation,
+  animation-name,
+  animation-duration,
+  animation-timing-function,
+  animation-delay,
+  animation-iteration-count,
+  animation-direction,
+  linear-gradient,
+  radial-gradient,
+  repeating-linear-gradient,
+  repeating-radial-gradient,
+  box-orient,
+  box-direction,
+  box-flex,
+  box-pack,
+  box-align,
+  column-count,
+  column-gap,
+  column-rule,
+  column-rule-width,
+  column-rule-style,
+  column-rule-color,
+  column-span,
+  column-fill,
+  padding-before,
+  padding-end,
+  padding-after,
+  padding-start,
+  margin-before,
+  margin-end,
+  margin-after,
+  margin-start;
+
+@function support-for($name) {
+  @return nth($css-support, index($css-properties, $name));
+}

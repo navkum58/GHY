@@ -1,0 +1,24 @@
+//  =============================================================================
+//  Config.scss
+//  -----------
+//  =============================================================================
+@import 'config/browser-support';
+@import 'config/colors';
+@import 'config/typography';
+
+
+// ============
+// BASE CONFIGS
+// ============
+
+// Base Font Colour: #333
+$base-font-color: $charcoal!default;
+
+// Base Line Height: 1.4em
+$base-line-height: 1.4em!default;
+
+// Base Font Family Default: sans-serif
+$base-font-family: oxygen!default;
+
+// Base Font Size Default: 14px
+$base-font-size: $font-size-normal!default;
